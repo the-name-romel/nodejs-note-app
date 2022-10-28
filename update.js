@@ -10,6 +10,7 @@ const update = function (oldNotes, updateNote) {
     return note;
   });
   fs.writeFileSync("note.txt", JSON.stringify(updates));
+  console.log("Note updated.");
 };
 
 module.exports = update;
