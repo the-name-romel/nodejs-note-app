@@ -2,6 +2,7 @@ const add = require("./add");
 const read = require("./read");
 const present = require("./present");
 const deleteNote = require("./del");
+const update = require("./update");
 // get user input
 const cmd = process.argv;
 
@@ -28,4 +29,14 @@ if (cmd[2] == "delete") {
   let id = cmd[3];
   let notes = read();
   deleteNote(notes, id);
+}
+
+if (cmd[2] == "update") {
+  let oldNotes = read();
+  let updateNotes = {
+    id: cmd[3],
+    title: cmd[4],
+    body: cmd[5],
+  };
+  update(oldNotes, updateNotes);
 }
